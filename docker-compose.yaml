@@ -1,0 +1,12 @@
+version: "3.3"
+services:
+  sonarqube:
+    build:
+      context: .
+      dockerfile: ./sonarqube.Dockerfile
+    volumes:
+      - ./sonarqube/data:/opt/sonarqube/data
+      - ./sonarqube/logs:/opt/sonarqube/logs
+      - ./sonarqube/extensions:/opt/sonarqube/extensions
+    ports:
+      - 9000:9000

@@ -1,0 +1,4 @@
+gitlab/*
+sonarqube/data/*
+sonarqube/extensions/*
+sonarqube/logs/*
