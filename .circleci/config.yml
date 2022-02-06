@@ -19,13 +19,7 @@ jobs:
       - run:
           name: "Go test"
           command: "go test -coverprofile=coverage.out"
-
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  code-qa:
-    jobs:
-      - quality:
+  quality:
           steps:
             - checkout
             - test
@@ -35,4 +29,11 @@ workflows:
                 sonar_login
                   - "ed37818c5c3d3e455b0fe88a7047f5036705d1a8"
                 sonar_sources
-                  - "."
+                  - "."  
+
+# Invoke jobs via workflows
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+workflows:
+  code-qa:
+    jobs:
+      - quality
