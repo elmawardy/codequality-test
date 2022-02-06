@@ -24,7 +24,7 @@ jobs:
           command: "go test -coverprofile=coverage.out"
       - persist_to_workspace:
           root: ~/artifacts
-          path: ./coverage.out
+          path: .
   scan-code:
     docker:
       - image: 'golang:1.17'
