@@ -20,6 +20,8 @@ jobs:
           name: "Go test"
           command: "go test -coverprofile=coverage.out"
   scan-code:
+    requires: 
+      - unit-test
     docker:
       - image: 'golang:1.17'
     steps:
