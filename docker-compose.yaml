@@ -1,12 +1,34 @@
 version: "3.3"
 services:
   sonarqube:
-    build:
-      context: .
-      dockerfile: ./sonarqube.Dockerfile
+    image: 'sonarqube:9.3-community'
     volumes:
       - ./sonarqube/data:/opt/sonarqube/data
       - ./sonarqube/logs:/opt/sonarqube/logs
       - ./sonarqube/extensions:/opt/sonarqube/extensions
     ports:
       - 9000:9000
+  # gitlab:
+  #   image: 'gitlab/gitlab-ee:latest'
+  #   restart: always
+  #   hostname: 'elmawardy-gitlab.localhost'
+  #   environment:
+  #     GITLAB_OMNIBUS_CONFIG: |
+  #       external_url 'elmawardy-gitlab.localhost'
+  #       # Add any other gitlab.rb configuration here, each on its own line
+  #   ports:
+  #     - '80:80'
+  #     - '443:443'
+  #     - '22:22'
+  #   volumes:
+  #     - './gitlab/config:/etc/gitlab'
+  #     - './gitlab/logs:/var/log/gitlab'
+  #     - './gitlab/data:/var/opt/gitlab'
+  #   shm_size: '256m'
+  # jenkins:
+  #   image: 'jenkins/jenkins:lts-jdk11'
+  #   ports:
+  #     - '8080:8080'
+  #     - '50000:50000'
+  #   volumes:
+  #     - ./jenkins/data:/var/jenkins_home
