@@ -25,11 +25,11 @@ jobs:
 workflows:
   code-qa:
     jobs:
-      quality:
-        steps:
-          - checkout
-          - test
-          # - sonarqube/check-code-quality
-          #     sonar_server_url: "https://sonarcloud.io"
-          #     sonar_login: "ed37818c5c3d3e455b0fe88a7047f5036705d1a8"
-          #     sonar_sources: "."
+      - quality:
+          steps:
+            - checkout
+            - test
+            - sonarqube/check-code-quality
+                sonar_server_url: "https://sonarcloud.io"
+                sonar_login: "ed37818c5c3d3e455b0fe88a7047f5036705d1a8"
+                sonar_sources: "."
