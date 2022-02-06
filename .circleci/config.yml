@@ -32,4 +32,4 @@ workflows:
   code-qa:
     jobs:
       - qa
-          context: sonarcloud
+        context: sonarcloud
