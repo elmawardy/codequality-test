@@ -31,5 +31,5 @@ jobs:
 workflows:
   code-qa:
     jobs:
-      - qa
-        context: sonarcloud
+      - scan-code
+          context: sonarcloud
