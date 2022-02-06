@@ -24,8 +24,9 @@ jobs:
           go test -coverprofile=./artifacts/coverage.out
       - persist_to_workspace:
           root: ~/workflow_dir
-          path: ./artifacts
+          paths: ./artifacts
   scan-code:
+    working_directory: ~/workflow_dir
     docker:
       - image: 'golang:1.17'
     steps:
