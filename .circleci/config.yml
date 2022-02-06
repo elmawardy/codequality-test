@@ -20,20 +20,20 @@ jobs:
           name: "Go test"
           command: "go test -coverprofile=coverage.out"
   quality:
-          steps:
-            - checkout
-            - test
-            - sonarqube/check-code-quality
-                sonar_server_url
-                  - "https://sonarcloud.io"
-                sonar_login
-                  - "ed37818c5c3d3e455b0fe88a7047f5036705d1a8"
-                sonar_sources
-                  - "."  
+    steps:
+      - checkout
+      - sonarqube/check-code-quality
+          sonar_server_url
+            - "https://sonarcloud.io"
+          sonar_login
+            - "ed37818c5c3d3e455b0fe88a7047f5036705d1a8"
+          sonar_sources
+            - "."  
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   code-qa:
     jobs:
+      - test
       - quality
