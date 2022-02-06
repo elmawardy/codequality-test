@@ -17,7 +17,7 @@ jobs:
     working_directory: ~/artifacts
     steps:
       - checkout
-      - attach_wokspace:
+      - attach_workspace:
           at: ~/artifacts
       - run:
           name: "Go test"
@@ -30,7 +30,7 @@ jobs:
       - image: 'golang:1.17'
     steps:
       - checkout
-      - attach_wokspace:
+      - attach_workspace:
           at: ~/artifacts
       - run: |
           apt update
