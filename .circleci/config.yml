@@ -19,10 +19,9 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/workflow_dir
-      - run:
-          name: "Go test"
-          command: mkdir artifacts
-          command: "go test -coverprofile=./artifacts/coverage.out"
+      - run: |
+          mkdir artifacts
+          go test -coverprofile=./artifacts/coverage.out
       - persist_to_workspace:
           root: ~/workflow_dir
           path: ./artifacts
