@@ -24,9 +24,9 @@ jobs:
       - image: 'golang:1.17'
     steps:
       - checkout
-      - run:
-          name: "Install unzip"
-          command: apt install -y unzip
+      - run: |
+          sudo apt update
+          sudo apt install -y unzip
       - sonarcloud/scan
 
 # Invoke jobs via workflows
