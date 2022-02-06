@@ -2,12 +2,12 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 orbs: 
-  sonarqube: psl/sonarscanner@0.0.4
+  sonarcloud: sonarsource/sonarcloud@1.0.3
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  qa:
+  unit-test:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
@@ -19,13 +19,12 @@ jobs:
       - run:
           name: "Go test"
           command: "go test -coverprofile=coverage.out"
-      - sonarqube/check-code-quality
-          sonar_server_url
-            - "https://sonarcloud.io"
-          sonar_login
-            - "ed37818c5c3d3e455b0fe88a7047f5036705d1a8"
-          sonar_sources
-            - "."
+  scan-code:
+    docker:
+      - image: 'golang:1.17'
+    steps:
+      - checkout
+      - sonarcloud/scan
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -33,3 +32,4 @@ workflows:
   code-qa:
     jobs:
       - qa
+          context: sonarcloud
