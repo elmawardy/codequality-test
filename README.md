@@ -1,6 +1,5 @@
 
-[![CircleCI](https://circleci.com/gh/elmawardy/codequality-test.svg?style=svg)](hhttps://circleci.com/gh/elmawardy/codequality-test) [![Quality Gate Status](http://localhost:9000/api/project_badges/measure?project=example&metric=alert_status&token=42c017478e18bd55ab321901bbd89011e32674f2)](http://localhost:9000/dashboard?id=example) [![Coverage](http://localhost:9000/api/project_badges/measure?project=example&metric=coverage&token=42c017478e18bd55ab321901bbd89011e32674f2)](http://localhost:9000/dashboard?id=example)
-
+[![CircleCI](https://circleci.com/gh/elmawardy/codequality-test.svg?style=svg)](hhttps://circleci.com/gh/elmawardy/codequality-test) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=codequality-test&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=codequality-test) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=codequality-test&metric=coverage)](https://sonarcloud.io/summary/new_code?id=codequality-test)
 
 Go test & output coverage : 
 
