@@ -13,3 +13,7 @@ func SayHello() string {
 func Greet(name string) string {
 	return "Welcome " + name
 }
+
+func ReplyName(name string) string {
+	return name
+}
